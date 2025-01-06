@@ -26,7 +26,7 @@ class Customer {
     }
 
     public toString(): string {
-        return `Name(${this.ID})\ndiscount (${this.discount})`;
+        return `ID: ${this.ID},${this.name}, discount: ${this.discount} %`;
     }
 }
 
@@ -61,8 +61,21 @@ class Invoice {
         this.amount = amount;
     }
 
+    public getCustomerId(): number {
+        return this.customer.getId();
+    }
+public getCustomerName(): string {
+        return this.customer.getName();
+    }
+public getCustomerDiscount(): number {
+        return this.customer.getDiscount();
+    }
+public getAmountAfterDiscount(): number {
+   const discount = this.amount * (this.getCustomerDiscount() / 100);
+        return this.amount - discount;
+    }
     public toString(): string {
-        return `Invoice ID: ${this.ID}\nCustomer: ${this.customer.getName()}\nAmount: ${this.amount}`;
+        return `Invoice ID: ${this.ID} Customer: ${this.customer.getName()}\nAmount: ${this.amount}`;
     }
 }
 

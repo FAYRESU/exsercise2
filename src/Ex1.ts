@@ -12,7 +12,7 @@ constructor(name: string, email: string) {
         return "Email:"+this.email;
     }
      public setEmail(email:string): void {
-        this.email=email;
+        this.email=email; //attribute , parameter ใน class นั้นๆ
     }
      public toString(): String {
         return "Author[name="+this.name+"\nEmail:"+this.email+"]";

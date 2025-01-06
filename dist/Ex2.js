@@ -18,7 +18,7 @@ class Customer {
         this.discount = discount;
     }
     toString() {
-        return `Name(${this.ID})\ndiscount (${this.discount})`;
+        return `ID: ${this.ID},${this.name}, discount: ${this.discount} %`;
     }
 }
 class Invoice {
@@ -42,8 +42,21 @@ class Invoice {
     setAmount(amount) {
         this.amount = amount;
     }
+    getCustomerId() {
+        return this.customer.getId();
+    }
+    getCustomerName() {
+        return this.customer.getName();
+    }
+    getCustomerDiscount() {
+        return this.customer.getDiscount();
+    }
+    getAmountAfterDiscount() {
+        const discount = this.amount * (this.getCustomerDiscount() / 100);
+        return this.amount - discount;
+    }
     toString() {
-        return `Invoice ID: ${this.ID}\nCustomer: ${this.customer.getName()}\nAmount: ${this.amount}`;
+        return `Invoice ID: ${this.ID} Customer: ${this.customer.getName()}\nAmount: ${this.amount}`;
     }
 }
 module.exports = { Customer, Invoice };

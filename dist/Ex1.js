@@ -11,7 +11,7 @@ class Author {
         return "Email:" + this.email;
     }
     setEmail(email) {
-        this.email = email;
+        this.email = email; //attribute , parameter ใน class นั้นๆ
     }
     toString() {
         return "Author[name=" + this.name + "\nEmail:" + this.email + "]";
