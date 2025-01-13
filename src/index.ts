@@ -2,6 +2,7 @@ const {Author, Book}= require("./Ex1");
 const { Customer, Invoice } = require("./Ex2");
 const { Person, Student, Staff } = require("./Ex3");
 const {Shape,Square,Rectangle,Circle} = require("./Ex4");
+const {DiscountRate, Customers, Visit} = require("./Ex5");
 
 console.log("############# Ex1 ###############")
 // author
@@ -53,3 +54,22 @@ console.log(shape.toString())
 const square = new Square("red",true,5)
 console.log(square.toString())
 square.setSide();
+console.log("##############################");
+console.log("############# Ex5 ###############");
+const customer = new Customers("Fale");
+    customer.setMember(true);
+    customer.setMemberType("Premium");
+    console.log(customer.toString());
+    
+    const visit = new Visit(customer.getName(), new Date());
+    visit.setServiceExpense(100);
+    visit.setProductExpense(50);
+    console.log(visit.toString());
+    
+    const serviceDiscount = DiscountRate.getServiceDiscountRate(customer.getMemberType());
+    const productDiscount = DiscountRate.getProductDiscountRate(customer.getMemberType());
+    const totalExpense = 
+      visit.getServiceExpense() * (1 - serviceDiscount) +
+      visit.getProductExpense() * (1 - productDiscount);
+    
+    console.log(`Total expense after discounts: ${totalExpense}`);
